@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Kelulusan</title>
+</head>
+<body>
+    <h1>Cek Kelulusan Berdasarkan Nilai</h1>
+    
+    <label for="nilaiInput">Masukkan Nilai: </label>
+    <input type="text" id="nilaiInput" placeholder="Masukkan nilai">
+    <button onclick="cekKelulusan()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function cekKelulusan() {
+            var nilai = document.getElementById("nilaiInput").value;
+            var hasil = document.getElementById("hasil");
+
+            if (nilai === "") {
+                hasil.textContent = "Masukkan nilai terlebih dahulu!";
+                return;
+            }
+
+            nilai = parseInt(nilai);
+
+            if (isNaN(nilai)) {
+                hasil.textContent = "Masukkan angka yang valid!";
+                return;
+            }
+
+            if (nilai < 55) {
+                hasil.textContent = "Nilai " + nilai + " tidak lulus.";
+            } else {
+                hasil.textContent = "Nilai " + nilai + " lulus.";
+            }
+        }
+    </script>
+</body>
+</html>
